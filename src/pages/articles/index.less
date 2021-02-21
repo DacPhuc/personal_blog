@@ -1,0 +1,48 @@
+.cardArticle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.titleAndImg {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article {
+  float: left;
+  font-size: 25px;
+  margin-right: 20px;
+  font-weight: bold;
+  color: rgb(230, 230, 230);
+  letter-spacing: 0;
+}
+
+.hotTrend {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  .trendChild {
+    flex: 1 0 21%; /* explanation below */
+    margin: 5px 20px 5px 20px;
+  }
+}
+
+.infiniteContain {
+  width: 30%;
+  margin-left: 200px;
+}
+
+@media (max-width: 800px) {
+  .hotTrend {
+    flex-direction: column;
+  }
+
+  .infiniteContain {
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
