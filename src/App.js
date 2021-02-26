@@ -1,13 +1,14 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { Route, Switch } from "react-router-dom";
+import Main from "./components/Main";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>My first blog</p>
-      </header>
+    <div>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Main} />
+      </Switch>
     </div>
   );
 }
