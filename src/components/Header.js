@@ -15,8 +15,9 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+import Create from "@material-ui/icons/Create";
+import Assignment from "@material-ui/icons/Assignment";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -108,9 +109,11 @@ export default function Header() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            DaPu
-          </Typography>
+          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+            <Typography variant="h6" className={classes.title}>
+              DaPu
+            </Typography>
+          </Link>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -133,24 +136,18 @@ export default function Header() {
         </div>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
+          {["My Blog", "My Resume"].map((text, index) => (
+            <Link
+              to={index % 2 === 0 ? "/blog" : "/resume"}
+              style={{ textDecoration: "none" }}
+            >
+              <ListItem button key={text}>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <Create /> : <Assignment />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            </Link>
           ))}
         </List>
       </Drawer>
