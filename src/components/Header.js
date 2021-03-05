@@ -135,11 +135,11 @@ export default function Header() {
           </IconButton>
         </div>
         <Divider />
-        <List>
+        <List onClick={handleDrawerClose}>
           {["My Blog", "My Resume"].map((text, index) => (
             <Link
               to={index % 2 === 0 ? "/blog" : "/resume"}
-              style={{ textDecoration: "none" }}
+              style={{ textDecoration: "none", color: "black" }}
             >
               <ListItem button key={text}>
                 <ListItemIcon>
