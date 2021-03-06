@@ -1,6 +1,7 @@
 @import "https://fonts.googleapis.com/css?family=Alfa+Slab+One";
 * {
   font-family: "Alfa Slab One", cursive;
+  font-display: swap;
 }
 
 .App {
