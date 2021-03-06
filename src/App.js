@@ -1,10 +1,12 @@
 import { Route, Switch } from "react-router-dom";
-import Main from "./components/Main";
-import Resume from "./components/Resume";
-import Blog from "./components/Blog";
-import Header from "./components/Header";
-import NotFound from "./components/NotFound/NotFound";
+import loadable from "@loadable/component";
 import "./App.css";
+
+const Main = loadable(() => import("./components/Main"));
+const Blog = loadable(() => import("./components/Resume"));
+const Header = loadable(() => import("./components/Header"));
+const Resume = loadable(() => import("./components/Resume"));
+const NotFound = loadable(() => import("./components/NotFound/NotFound"));
 
 function App() {
   return (
