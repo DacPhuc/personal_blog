@@ -1,5 +1,15 @@
+/* dotgothic16-regular - latin */
+@font-face {
+  font-family: "DotGothic16";
+  font-style: normal;
+  src: local(""),
+    url("./fonts/dotgothic16-v1-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("./fonts/dotgothic16-v1-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
 * {
-  font-family: "DotGothic16", sans-serif;
+  font-family: DotGothic16;
 }
 
 .App {
