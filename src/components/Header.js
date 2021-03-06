@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    fontFamily: "DotGothic16, sans-serif",
   },
   hide: {
     display: "none",
