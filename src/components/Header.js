@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 import React from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -137,19 +138,52 @@ export default function Header() {
         </div>
         <Divider />
         <List onClick={handleDrawerClose}>
-          {["My Blog", "My Resume"].map((text, index) => (
-            <Link
-              to={index % 2 === 0 ? "/blog" : "/resume"}
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <Create /> : <Assignment />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            </Link>
-          ))}
+          {["My Blog", "My Resume", "Web Speech API"].map((text, index) => {
+            switch (index) {
+              case 0:
+                return (
+                  <Link
+                    to={"/blog"}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <ListItem button key={text}>
+                      <ListItemIcon>
+                        {index % 2 === 0 ? <Create /> : <Assignment />}
+                      </ListItemIcon>
+                      <ListItemText primary={text} />
+                    </ListItem>
+                  </Link>
+                );
+              case 1:
+                return (
+                  <Link
+                    to={"/resume"}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <ListItem button key={text}>
+                      <ListItemIcon>
+                        {index % 2 === 0 ? <Create /> : <Assignment />}
+                      </ListItemIcon>
+                      <ListItemText primary={text} />
+                    </ListItem>
+                  </Link>
+                );
+              case 2:
+                return (
+                  <Link
+                    to={"/web-speech-api"}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    <ListItem button key={text}>
+                      <ListItemIcon>
+                        {index % 2 === 0 ? <Create /> : <Assignment />}
+                      </ListItemIcon>
+                      <ListItemText primary={text} />
+                    </ListItem>
+                  </Link>
+                );
+            }
+          })}
         </List>
       </Drawer>
     </div>
