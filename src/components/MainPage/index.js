@@ -6,12 +6,12 @@ import React from "react";
 const Wrapper = styled.div`
   background-color: #282c34;
   display: flex;
-  height: 100vh;
+  min-height: 80vh;
 `;
 
 const SubWrapper = styled.div`
   flex-grow: 1;
-  height: 100vh;
+  min-height: 80vh;
 `;
 
 const Header = styled.div`

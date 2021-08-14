@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import clsx from "clsx";
 import {
   createStyles,
@@ -26,6 +26,10 @@ import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
 import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
+
+interface Props {
+  childProps?: React.ReactNode;
+}
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -91,7 +95,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function Header() {
+const Header: React.FC<Props> = ({ children }) => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -203,6 +207,12 @@ export default function Header() {
         </List>
         <Divider />
       </Drawer>
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        <div>{children}</div>
+      </main>
     </div>
   );
-}
+};
+
+export default Header;
