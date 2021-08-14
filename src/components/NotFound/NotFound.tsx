@@ -1,8 +1,11 @@
+import React from "react";
 import "./style.css";
+import Helmet from "react-helmet";
 
 const NotFound = () => {
   return (
     <div className="FourOhFour">
+      <Helmet title="404" />
       <div
         className="bg"
         style={{

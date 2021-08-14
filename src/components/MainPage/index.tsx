@@ -1,6 +1,7 @@
 import logo from "../../logo.svg";
 import Anime, { anime } from "react-anime";
 import styled from "styled-components";
+import { Helmet } from "react-helmet";
 import React from "react";
 
 const Wrapper = styled.div`
@@ -30,29 +31,30 @@ const HashTag = styled.div`
   margin-left: 20px;
 `;
 
-export default class Main extends React.PureComponent {
-  render() {
-    return (
-      <Wrapper>
-        <SubWrapper />
-        <SubWrapper>
-          <Header>
-            <img src={logo} className="App-logo" alt="logo" />
-            <Anime delay={anime.stagger(100)} scale={[0.1, 0.9]}>
-              <p>Hi there! I'm DaPu 👋</p>
-            </Anime>
-          </Header>
+const Main: React.FC = () => {
+  return (
+    <Wrapper>
+      <Helmet title="Dapu" />
+      <SubWrapper />
+      <SubWrapper>
+        <Header>
+          <img src={logo} className="App-logo" alt="logo" />
           <Anime delay={anime.stagger(100)} scale={[0.1, 0.9]}>
-            <HashTag>
-              <p>I ...</p>
-              <p>#Eat</p>
-              <p>#Code</p>
-              <p>#Love</p>
-            </HashTag>
+            <p>Hi there! I'm DaPu 👋</p>
           </Anime>
-        </SubWrapper>
-        <SubWrapper />
-      </Wrapper>
-    );
-  }
-}
+        </Header>
+        <Anime delay={anime.stagger(100)} scale={[0.1, 0.9]}>
+          <HashTag>
+            <p>I ...</p>
+            <p>#Eat</p>
+            <p>#Code</p>
+            <p>#Love</p>
+          </HashTag>
+        </Anime>
+      </SubWrapper>
+      <SubWrapper />
+    </Wrapper>
+  );
+};
+
+export default Main;

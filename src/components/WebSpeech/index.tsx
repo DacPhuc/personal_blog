@@ -3,6 +3,7 @@ import { Header } from "./Header";
 import styled from "styled-components";
 import { SpeechToText } from "./SpeechToText";
 import TextToSpeech from "./TextToSpeech";
+import Helmet from "react-helmet";
 
 interface Props {
   bgColor: string;
@@ -33,6 +34,7 @@ const App: React.FC = () => {
 
   return (
     <Wrapper>
+      <Helmet title="Dapu Web Speech API" />
       <SpeechToTextWrapper bgColor={color}>
         <Header name={"Speech To Text"} />
         <SpeechToText changeColor={(value) => setColor(value)} />
