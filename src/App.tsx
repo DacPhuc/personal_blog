@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   heightL 100%
 `;
 
-function App() {
+const App = () => {
   return (
     <>
       <div className="wrapper">
@@ -35,6 +35,6 @@ function App() {
       </div>
     </>
   );
-}
+};
 
 export default App;

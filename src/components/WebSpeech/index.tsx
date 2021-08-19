@@ -3,7 +3,7 @@ import { Header } from "./Header";
 import styled from "styled-components";
 import { SpeechToText } from "./SpeechToText";
 import TextToSpeech from "./TextToSpeech";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 
 interface Props {
   bgColor: string;
