@@ -1,3 +1,6 @@
 import { combineReducers } from "redux";
+import blogs from "../components/Blog/state";
 
-export default combineReducers({});
+export default combineReducers({
+  blogs,
+});

@@ -4,7 +4,7 @@ import "./App.css";
 import styled from "styled-components";
 
 const MainPage = loadable(() => import("./components/MainPage"));
-const Blog = loadable(() => import("./components/Resume"));
+const Blog = loadable(() => import("./components/Blog"));
 const Header = loadable(() => import("./components/Header"));
 const Resume = loadable(() => import("./components/Resume"));
 const WebSpeechAPI = loadable(() => import("./components/WebSpeech"));

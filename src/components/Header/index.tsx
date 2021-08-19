@@ -165,6 +165,7 @@ const Header: React.FC<Props> = ({ children }) => {
                   <Link
                     to={"/blog"}
                     style={{ textDecoration: "none", color: "black" }}
+                    key={index}
                   >
                     <ListItem button key={text}>
                       <ListItemIcon>
@@ -179,6 +180,7 @@ const Header: React.FC<Props> = ({ children }) => {
                   <Link
                     to={"/resume"}
                     style={{ textDecoration: "none", color: "black" }}
+                    key={index}
                   >
                     <ListItem button key={text}>
                       <ListItemIcon>
@@ -193,6 +195,7 @@ const Header: React.FC<Props> = ({ children }) => {
                   <Link
                     to={"/web-speech-api"}
                     style={{ textDecoration: "none", color: "black" }}
+                    key={index}
                   >
                     <ListItem button key={text}>
                       <ListItemIcon>
