@@ -5,7 +5,7 @@ const Resume = () => {
   return (
     <div>
       <Helmet title="Dapu Resume" />
-      <p>Hello World</p>
+      <p>Hello World, i'm still working on it, see u soon</p>
     </div>
   );
 };

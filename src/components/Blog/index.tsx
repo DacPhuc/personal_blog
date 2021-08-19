@@ -9,8 +9,7 @@ const Blog = () => {
   return (
     <div>
       <Helmet title="Dapu blog" />
-      <p>Hello World nhe</p>
-      <div>Hi</div>
+      <p>Hello World, i'm still working on it, see u soon</p>
     </div>
   );
 };
