@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
+import generateHostParam from "../../utils/genHostUrl";
 
 const Blog = () => {
   const blogList = useSelector((state: RootState) => state.blogs);
+
+  useEffect(() => {
+    console.log(blogList);
+  }, []);
 
   return (
     <div>

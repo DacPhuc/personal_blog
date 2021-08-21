@@ -1,5 +1,9 @@
 import { RootState } from "../../store";
 
+type BlogState = {
+  data: Blog[];
+};
+
 const initialState: BlogState = {
   data: [
     {

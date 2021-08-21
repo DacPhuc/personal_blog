@@ -8,17 +8,19 @@ const Blog = loadable(() => import("./components/Blog"));
 const Header = loadable(() => import("./components/Header"));
 const Resume = loadable(() => import("./components/Resume"));
 const WebSpeechAPI = loadable(() => import("./components/WebSpeech"));
-const NotFound = loadable(() => import("./components/NotFound/NotFound"));
+const NotFound = loadable(() => import("./components/NotFound"));
+const Notification = loadable(() => import("./components/Notification"));
 
 const Wrapper = styled.div`
   width: 100%;
-  heightL 100%
+  height: 100%;
 `;
 
 const App = () => {
   return (
     <>
       <div className="wrapper">
+        <Notification />
         <Header
           children={
             <Wrapper>

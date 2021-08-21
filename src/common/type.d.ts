@@ -5,6 +5,7 @@ type Blog = {
   view: number;
 };
 
-type BlogState = {
-  data: Blog[];
+type Notification = {
+  type: string;
+  message: string;
 };
