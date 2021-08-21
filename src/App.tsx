@@ -19,8 +19,8 @@ const Wrapper = styled.div`
 const App = () => {
   return (
     <>
+      <Notification />
       <div className="wrapper">
-        <Notification />
         <Header
           children={
             <Wrapper>

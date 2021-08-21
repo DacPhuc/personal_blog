@@ -1,21 +1,35 @@
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 
 type NotificationState = {
   open: boolean;
-  data?: Notification;
+  data?: NotificationInfo;
 };
 
 const initialState: NotificationState = {
-  open: true,
+  open: false,
 };
 
-const reducer = (
-  state: NotificationState = initialState
-): NotificationState => {
-  return state;
-};
+export const notificationSlice = createSlice({
+  name: "notification",
+  initialState,
+  reducers: {
+    pushNotification: (state, action: PayloadAction<NotificationInfo>) => {
+      state.open = true;
+      state.data = action.payload;
+    },
+    hideNotification: (state) => {
+      state.open = false;
+    },
+  },
+});
+
+export const { pushNotification, hideNotification } = notificationSlice.actions;
 
 export const notificationSelector = (state: RootState) =>
   state.notifications.data;
 
-export default reducer;
+export const isDisplayNotificationSelector = (state: RootState) =>
+  state.notifications.open;
+
+export default notificationSlice.reducer;

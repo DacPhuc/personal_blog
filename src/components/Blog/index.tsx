@@ -1,14 +1,20 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
-import generateHostParam from "../../utils/genHostUrl";
+import { pushNotification } from "../Notification/state";
 
 const Blog = () => {
   const blogList = useSelector((state: RootState) => state.blogs);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(blogList);
+    dispatch(
+      pushNotification({
+        type: "success",
+        message: "Hello i added notification to my page",
+      })
+    );
   }, []);
 
   return (

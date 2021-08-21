@@ -5,7 +5,7 @@ type Blog = {
   view: number;
 };
 
-type Notification = {
+type NotificationInfo = {
   type: string;
   message: string;
 };
