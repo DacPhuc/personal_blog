@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
-import { pushNotification } from "../Notification/state";
+import { pushNotification, fetchSomething } from "../Notification/state";
 
 const Blog = () => {
   const blogList = useSelector((state: RootState) => state.blogs);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(fetchSomething());
     dispatch(
       pushNotification({
         type: "success",

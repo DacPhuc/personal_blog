@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
+import { query } from "../../services/blog";
 
 type NotificationState = {
   open: boolean;
@@ -9,6 +10,14 @@ type NotificationState = {
 const initialState: NotificationState = {
   open: false,
 };
+
+export const fetchSomething = createAsyncThunk(
+  "notification/fetchSomething",
+  async () => {
+    const response = await query();
+    return response;
+  }
+);
 
 export const notificationSlice = createSlice({
   name: "notification",
@@ -21,6 +30,11 @@ export const notificationSlice = createSlice({
     hideNotification: (state) => {
       state.open = false;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchSomething.fulfilled, (state, action) => {
+      console.log(action.payload);
+    });
   },
 });
 
