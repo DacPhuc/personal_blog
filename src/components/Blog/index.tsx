@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store";
-import { pushNotification, fetchSomething } from "../Notification/state";
+import { pushNotification } from "../Notification/state";
+import ArticleComponent from "./ArticleComponent";
+import { blogsSelector, fetchArticlesList } from "./state";
 
 const Blog = () => {
-  const blogList = useSelector((state: RootState) => state.blogs);
+  const blogList = useSelector(blogsSelector);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchSomething());
+    dispatch(fetchArticlesList());
     dispatch(
       pushNotification({
         type: "success",
@@ -22,6 +23,9 @@ const Blog = () => {
     <div>
       <Helmet title="Dapu blog" />
       <p>Hello World, i'm still working on it, see u soon</p>
+      {blogList.map((article: Blog, index) => {
+        return <ArticleComponent key={index} article={article} />;
+      })}
     </div>
   );
 };
