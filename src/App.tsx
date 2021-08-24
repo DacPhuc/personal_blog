@@ -20,7 +20,7 @@ const App = () => {
   return (
     <>
       <Notification />
-      <div className="wrapper">
+      <div>
         <Header
           children={
             <Wrapper>

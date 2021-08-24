@@ -1,7 +1,7 @@
 import logo from "../../logo.svg";
 import Anime, { anime } from "react-anime";
 import styled from "styled-components";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import React from "react";
 
 const Wrapper = styled.div`
@@ -33,7 +33,7 @@ const HashTag = styled.div`
 
 const Main: React.FC = () => {
   return (
-    <Wrapper>
+    <Wrapper className="wrapper">
       <Helmet title="Dapu" />
       <SubWrapper />
       <SubWrapper>
