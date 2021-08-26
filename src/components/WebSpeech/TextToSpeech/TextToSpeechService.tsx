@@ -6,7 +6,7 @@ export default class TextToSpeechService {
     this.speechSynthesis = window.speechSynthesis;
     this.msg = new SpeechSynthesisUtterance();
     this.msg.volume = 1;
-    this.msg.rate = 1.1;
+    this.msg.rate = 1;
     this.msg.pitch = 2;
     this.msg.lang = "en-US";
   }
@@ -22,7 +22,7 @@ export default class TextToSpeechService {
     };
 
     const voices = this.speechSynthesis.getVoices();
-    this.msg.voice = voices[9];
+    this.msg.voice = voices[0];
 
     this.speechSynthesis.speak(this.msg);
   };

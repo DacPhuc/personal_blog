@@ -15,6 +15,9 @@ const Wrapper = styled.div`
   padding: 0;
   display: flex;
   height: 100vh;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const SpeechToTextWrapper = styled.div<Props>`
@@ -22,6 +25,9 @@ const SpeechToTextWrapper = styled.div<Props>`
   height: 100vh;
   border-right: 2px solid black;
   background: ${(props) => props.bgColor};
+  @media (max-width: 768px) {
+    border-right: none;
+  }
 `;
 
 const TextToSpeechWrapper = styled.div`
