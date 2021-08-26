@@ -10,6 +10,7 @@ const Resume = loadable(() => import("./components/Resume"));
 const WebSpeechAPI = loadable(() => import("./components/WebSpeech"));
 const NotFound = loadable(() => import("./components/NotFound"));
 const Notification = loadable(() => import("./components/Notification"));
+const ArticleContent = loadable(() => import("./components/Article"));
 
 const Wrapper = styled.div`
   width: 100%;
@@ -26,9 +27,10 @@ const App = () => {
             <Wrapper>
               <Switch>
                 <Route exact path="/" component={MainPage} />
-                <Route path="/blog" component={Blog} />
+                <Route exact path="/blog" component={Blog} />
                 <Route path="/resume" component={Resume} />
                 <Route path="/web-speech-api" component={WebSpeechAPI} />
+                <Route path="/blog/:id/:slug" component={ArticleContent} />
                 <Route path="*" component={NotFound} />
               </Switch>
             </Wrapper>

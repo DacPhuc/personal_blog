@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { pushNotification } from "../Notification/state";
 import ArticleComponent from "./ArticleComponent";
 import { blogsSelector, fetchArticlesList } from "./state";
 import { Helmet } from "react-helmet-async";
+import { useHistory } from "react-router-dom";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -23,6 +24,7 @@ const ListArticles = styled.div`
 const Blog: React.FC = () => {
   const blogList = useSelector(blogsSelector);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(fetchArticlesList());
@@ -35,6 +37,13 @@ const Blog: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const changePage = useCallback(
+    (id: number, slug: string) => {
+      history.push(`blog/${id}/${slug}`);
+    },
+    [history]
+  );
+
   return (
     <Wrapper>
       <Helmet title="Dapu blog" />
@@ -43,7 +52,14 @@ const Blog: React.FC = () => {
       </Header>
       <ListArticles>
         {blogList.map((article: Blog, index) => {
-          return <ArticleComponent key={index} article={article} />;
+          return (
+            <div
+              onClick={() => changePage(article.id, article.slug)}
+              key={index}
+            >
+              <ArticleComponent article={article} />
+            </div>
+          );
         })}
       </ListArticles>
     </Wrapper>

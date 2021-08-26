@@ -3,6 +3,7 @@ type Blog = {
   title: string;
   url: string;
   view: number;
+  slug: string;
 };
 
 type NotificationInfo = {
