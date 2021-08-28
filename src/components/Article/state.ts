@@ -4,6 +4,7 @@ import { queryArticleContent } from "../../services/blog";
 
 type ArticleState = {
   data: any;
+  loading: boolean;
 };
 
 type ArticleParam = {
@@ -13,6 +14,7 @@ type ArticleParam = {
 
 const initialState: ArticleState = {
   data: null,
+  loading: true,
 };
 
 export const fetchArticleContent = createAsyncThunk(
@@ -29,11 +31,17 @@ export const articlesSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchArticleContent.fulfilled, (state, action) => {
+      state.loading = false;
       state.data = action.payload;
+    });
+    builder.addCase(fetchArticleContent.pending, (state, action) => {
+      state.loading = true;
     });
   },
 });
 
 export const articleContentSelector = (state: RootState) => state.articles.data;
+export const loadingContentSelector = (state: RootState) =>
+  state.articles.loading;
 
 export default articlesSlice.reducer;

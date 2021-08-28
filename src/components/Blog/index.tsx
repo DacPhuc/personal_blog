@@ -39,7 +39,7 @@ const Blog: React.FC = () => {
 
   const changePage = useCallback(
     (id: number, slug: string) => {
-      history.push(`blog/${id}/${slug}`);
+      history.push(`article/${id}/${slug}`);
     },
     [history]
   );

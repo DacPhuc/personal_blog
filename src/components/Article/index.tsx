@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {
-  CircularProgress,
-  createStyles,
-  makeStyles,
-  Theme,
-} from "@material-ui/core";
+import LoadingComponent from "../Loading";
+import { createStyles, makeStyles, Theme } from "@material-ui/core";
 import { NotionRenderer } from "react-notion-x";
 import { useDispatch, useSelector } from "react-redux";
-import { articleContentSelector, fetchArticleContent } from "./state";
+import {
+  articleContentSelector,
+  fetchArticleContent,
+  loadingContentSelector,
+} from "./state";
 
 type ArticleParams = {
   id: string;
@@ -18,10 +18,10 @@ type ArticleParams = {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     wrapper: {
-      width: "100%",
+      boxSizing: "border-box",
     },
     notionContainer: {
-      maxWidth: "100vw",
+      maxWidth: "100%",
     },
   })
 );
@@ -30,6 +30,7 @@ const ArticleContent: React.FC = () => {
   const { id, slug } = useParams<ArticleParams>();
   const dispatch = useDispatch();
   const articleContent = useSelector(articleContentSelector);
+  const loading = useSelector(loadingContentSelector);
   const classes = useStyles();
 
   useEffect(() => {
@@ -37,17 +38,19 @@ const ArticleContent: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return articleContent ? (
+  return (
     <div className={classes.wrapper}>
-      <NotionRenderer
-        recordMap={articleContent}
-        fullPage={true}
-        darkMode={false}
-        className={classes.notionContainer}
-      />
+      {loading ? (
+        <LoadingComponent />
+      ) : (
+        <NotionRenderer
+          recordMap={articleContent}
+          darkMode={false}
+          fullPage={true}
+          className={classes.notionContainer}
+        />
+      )}
     </div>
-  ) : (
-    <CircularProgress />
   );
 };
 
